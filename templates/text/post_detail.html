@@ -1,0 +1,16 @@
+{% extends 'text/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if text.published_date %}
+            <div class="date">
+                {{ text.published_date }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=text.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h1>{{ text.title }}</h1>
+        <p>{{ text.text|linebreaksbr }}</p>
+        <p>file: {{ text.file|linebreaksbr }}</p>
+
+    </div>
+{% endblock %}
